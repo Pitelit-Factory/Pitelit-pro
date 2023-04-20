@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+  {% if app.user %}
+    <h5 class="card-title">Bon retour sur Pitelit {{app.user.nom}} {{app.user.prenom}} </h5>
+    <a href="/addVoitures" class="btn btn-primary">Commencé à ajouter une voiture</a>
+  {% else %}
+    <h5 class="card-title">Bienvenue sur Pitelit</h5>
+    <p class="card-text">Faire la révision de vos voitures n'est plus un soucis</p>
+    <p class="card-text">Pour commencer connecter vous !</p>
+    <a href="/login" class="btn btn-primary">Se connecter</a>
+    <a href="/register" class="btn btn-primary">S'inscrire</a>
+  {% endif %}
+    
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+{% endblock %}

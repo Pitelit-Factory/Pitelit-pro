@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Plaque</th>
+      <th scope="col">Marque</th>
+      <th scope="col">Modele</th>
+      <th scope="col">Carburant</th>
+      <th scope="col"><a href='{{ path('app_add_voiture') }}'>Ajouter voiture</a></th>
+    </tr>
+  </thead>
+  {% for voiture in voitures %}
+  <tbody>
+    <tr>
+      <td>{{ voiture.plaque }}</th>
+      <td>{{ voiture.marque }}</th>
+      <td>{{ voiture.modele }}</th>
+      <td>{{ voiture.carburant }}</th>
+      <th scope="row"><button><a href='{{ path('delete_voiture', {id: voiture.id}) }}'>Delete</a></button></th>
+      <th scope="col"><a href='{{ path('update_voiture',{id: voiture.id} ) }}'>Modifier</a></th>
+
+    </tr>
+{% endfor %}
+{% endblock %}

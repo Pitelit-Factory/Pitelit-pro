@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div style='text-align:center'>
+<h1>Ajouter votre voiture</h1>
+
+
+
+{# {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %} #}
+<br>
+{{ form_start(VoitureType) }}
+{{ form_row(VoitureType.plaque, {label: 'Immatriculation', pattern: "[A-Z]{2}-[0-9]{3}-[A-Z]{2}"}) }}
+{{form_errors(VoitureType.plaque)}}
+{{ form_row(VoitureType.marque) }}
+{{ form_row(VoitureType.modele) }}
+{{ form_row(VoitureType.carburant) }}
+{{ form_row(VoitureType.finition) }}
+{# {{ form_row(VoitureType.annee) }} #}
+
+<button type="submit" class="btn-btn-success">Register</button>
+{{ form_end(VoitureType) }}
+
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+</div>
+{# {% if message  %}
+<button type='btn-btn-info'>{{message}}</button>
+{% endif %} #}
+
+{% endblock %}

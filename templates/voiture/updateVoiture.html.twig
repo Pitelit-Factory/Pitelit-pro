@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div style='text-align:center'>
+<h1>Modifier votre voiture</h1>
+
+{% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+<br>
+{{ form_start(UpdateVoitureType) }}
+{{ form_row(UpdateVoitureType.plaque) }}
+{{ form_row(UpdateVoitureType.marque) }}
+{{ form_row(UpdateVoitureType.modele) }}
+{{ form_row(UpdateVoitureType.carburant) }}
+<button type="submit" class="btn-btn-success">Register</button>
+{{ form_end(UpdateVoitureType) }}
+</div>
+
+{% endblock %}
